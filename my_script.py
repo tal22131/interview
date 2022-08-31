@@ -1,8 +1,18 @@
-import sys
+from sys import argv
 
-filename = list(sys.argv)[2]
+def func():
 
+    if len(argv) < 2:
+        return 0
 
-with open(filename, 'w') as f:
-    f.write(".".join(filename.split(".")[:-1]))
+    textToPrint = argv[1]
 
+    if "." in argv[1]:
+        textToPrint = argv[1].rsplit(".", 1)[0]
+
+    f = open(argv[1], "a")
+    f.write(textToPrint)
+    f.close()
+
+if __name__ == "__main__":
+    func()
